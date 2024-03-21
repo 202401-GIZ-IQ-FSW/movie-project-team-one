@@ -4,14 +4,14 @@ import {
 } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const API_KEY = process.env.API_KEY;
+// const API_KEY = process.env.API_KEY;
 
 export const fetchData = createAsyncThunk(
 	"data/fetchData",
 	async () => {
 		const response = await axios.get(
-			`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
-		);
+			`https://api.themoviedb.org/3/movie/popular?api_key=258db8ec4984148dcc9558ed97d94f6a&language=en-US&page=1`
+    );
     console.log('response',response.data);
 		return response.data.results;
 	}
