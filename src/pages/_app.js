@@ -4,11 +4,14 @@ import { Toaster } from "react-hot-toast";
 import { ToastContainer } from "react-toastify";
 import { ThemeProvider } from "@material-tailwind/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Provider } from "react-redux";
 // import "@/styles/globals.css";
 import "../styles/Layout.css";
+import { store } from "@/app/store";
 
 export default function App({ Component, pageProps }) {
   return (
+    <Provider store={store}>
       <ThemeProvider>
         {/* <Layout> */}
           <Toaster />
@@ -17,5 +20,6 @@ export default function App({ Component, pageProps }) {
           <Component {...pageProps} />
         {/* </Layout> */}
       </ThemeProvider>
+    </Provider>
   );
 }
