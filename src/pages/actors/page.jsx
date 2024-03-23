@@ -2,14 +2,14 @@ import React from "react";
 import { useRouter } from "next/router";
 import Layout from "@/components/Layout";
 import "../../app/globals.css";
-import DisplayActorCard from "./displayActorCard";
+import DisplayActorCard from "../../components/actors/displayActorCard";
 
 import peopleFetch from "@/components/api/Actors/peopleFetch";
 
 export default function Page() {
 	// Capitalized function name
-	const router = useRouter();
-	const { id } = router.query;
+	// const router = useRouter();
+	// const { id } = router.query;
 	const actors = peopleFetch();
 	// console.log(actors);
 

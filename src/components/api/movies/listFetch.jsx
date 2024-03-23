@@ -6,19 +6,20 @@ function ListFetch({ listName }) {
 	const [results, setResults] = useState([]);
 
 	useEffect(() => {
-		const fetchList = async () => {
-			try {
-				const res = await fetch(
-					`https://api.themoviedb.org/3/movie/${listName}?api_key=${API_KEY}&language=en-US&page=1`
-				);
-				const data = await res.json();
-				setResults(data.results);
-			} catch (error) {
-				console.error("Error fetching data:", error);
-			}
-		};
-
-		fetchList();
+			const fetchList = async () => {
+				try {
+					const res = await fetch(
+						`https://api.themoviedb.org/3/movie/${listName}?api_key=${API_KEY}&language=en-US&page=1`
+					);
+					const data = await res.json();
+					setResults(data.results);
+					console.log(results);
+				} catch (error) {
+					console.error("Error fetching data:", error);
+				}
+			};
+	
+			fetchList();
 	}, [listName]);
 
 	return results;

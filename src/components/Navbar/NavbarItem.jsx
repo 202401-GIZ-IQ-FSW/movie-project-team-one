@@ -9,5 +9,5 @@ export default function NavbarItem({ title, param }) {
 	const searchParams = useSearchParams();
 	const genre = searchParams.get("genre");
 
-	return <Link href={`/?genre=${param}`} className={`${genre===param? "text-yellow-400":"" }`}>{title}</Link>;
+	return <Link href={`/movies/page/?genre=${param}`} className={`${genre===param? "text-yellow-400":"" }`}>{title}</Link>;
 } 

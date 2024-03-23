@@ -3,8 +3,8 @@ import IdFetch from "@/components/api/movies/idFetch";
 import castFetch from "@/components/api/movies/castFetch";
 import "../../app/globals.css";
 import Layout from "@/components/Layout";
-import DisplayDetails from "./displayDetails";
-import DisplayCast from "./displayCast";
+import DisplayDetails from "../../components/movieDetails/displayDetails";
+import DisplayCast from "../../components/movieDetails/displayCast";
 
 export default function MovieDetails() {
 	const router = useRouter();
@@ -13,7 +13,7 @@ export default function MovieDetails() {
 	// Fetch movie details using the id
 	const movie = IdFetch({ movie_id: id });
 	const cast = castFetch({ movie_id: id });
-	
+
 	// Check if either movie or cast is loading
 	if (!movie || !cast) {
 		// Render loading state or return null
