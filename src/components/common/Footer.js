@@ -17,7 +17,7 @@ function Footer() {
 						<div className='footer-logo'>
 							<a href='index.html'>
 								<Image
-									src='/img/logo.png'
+									src='/img/logo/logo.png'
 									alt='Logo'
 									width={200}
 									height={50}
