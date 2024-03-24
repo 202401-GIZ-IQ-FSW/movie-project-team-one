@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const API_KEY = "258db8ec4984148dcc9558ed97d94f6a";
 
@@ -8,11 +9,16 @@ function PeopleSearchFetch({ searchString }) {
 	useEffect(() => {
 		const fetchPeople = async () => {
 			try {
-				const response = await fetch(
-					`https://api.themoviedb.org/3/search/person?api_key=${API_KEY}&query=${searchString}`
+				const response = await axios.get(
+					`https://api.themoviedb.org/3/search/person`,
+					{
+						params: {
+							api_key: API_KEY,
+							query: searchString,
+						},
+					}
 				);
-				const data = await response.json();
-				setPeople(data.results);
+				setPeople(response.data.results);
 			} catch (error) {
 				console.error("Error fetching data:", error);
 			}
@@ -21,7 +27,7 @@ function PeopleSearchFetch({ searchString }) {
 		fetchPeople();
 	}, [searchString]);
 
-	return (people);
+	return people;
 }
 
 export default PeopleSearchFetch;

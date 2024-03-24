@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const API_KEY = "258db8ec4984148dcc9558ed97d94f6a";
 
 function idPeopleFetch({ actor_id }) {
-	const [actor, setActor] = useState([]); // Initialize as null
-	const URL = `https://api.themoviedb.org/3/person/${actor_id}?api_key=${API_KEY}&language=en-US`;
+	const [actor, setActor] = useState([]);
+	const URL = `https://api.themoviedb.org/3/person/${actor_id}`;
 
 	useEffect(() => {
 		// Check if actor_id is available
 		if (actor_id) {
 			const fetchActor = async () => {
 				try {
-					const res = await fetch(URL);
-					if (!res.ok) {
-						throw new Error('Failed to fetch actor data');
-					}
-					const data = await res.json();
-					setActor(data); // Set the entire actor object
+					const response = await axios.get(URL, {
+						params: {
+							api_key: API_KEY,
+							language: "en-US",
+						},
+					});
+					setActor(response.data); // Set the entire actor object
 				} catch (error) {
 					console.error("Error fetching data:", error);
 					setActor(null); // Reset actor state in case of error

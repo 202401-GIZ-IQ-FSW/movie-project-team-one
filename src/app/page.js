@@ -110,7 +110,7 @@ export default function Home() {
 				</Marquee>
 			</div>
 
-			{/* <h1 className='pt-10 text-center font-bold'>
+			<h1 className='pt-10 text-center font-bold'>
 				Upcoming
 			</h1>
 			<div className='flex overflow-x-auto gap-2 bg-yellow-300 p-3'>
@@ -128,8 +128,8 @@ export default function Home() {
 						</div>
 					))}
 				</Marquee>
-			</div> */}
-			<UpcomingMovies />
+			</div>
+			{/* <UpcomingMovies /> */}
 		</div>
 	);
 }
