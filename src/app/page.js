@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import ListFetch from "@/components/api/movies/listFetch";
 import DisplayCard from "@/components/movieDetails/displayCard";
 import Marquee from "react-fast-marquee";
+import UpcomingMovies from "@/components/upcomingMovies/UpcomingMovies";
 
 export default function Home() {
 	const [popular, setPopular] = useState([]);
@@ -109,7 +110,7 @@ export default function Home() {
 				</Marquee>
 			</div>
 
-			<h1 className='pt-10 text-center font-bold'>
+			{/* <h1 className='pt-10 text-center font-bold'>
 				Upcoming
 			</h1>
 			<div className='flex overflow-x-auto gap-2 bg-yellow-300 p-3'>
@@ -127,7 +128,8 @@ export default function Home() {
 						</div>
 					))}
 				</Marquee>
-			</div>
+			</div> */}
+			<UpcomingMovies />
 		</div>
 	);
 }
