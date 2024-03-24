@@ -106,7 +106,7 @@ function Footer() {
 								href='index.html'
 								className='text-yellow-300'
 							>
-								Movflx
+								Team One
 							</a>
 						</p>
 					</div>
