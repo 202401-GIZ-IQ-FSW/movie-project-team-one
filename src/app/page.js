@@ -129,7 +129,9 @@ export default function Home() {
 					))}
 				</Marquee>
 			</div> */}
-			<UpcomingMovies />
+			<div className="mt-24 mb-24">
+				<UpcomingMovies />
+			</div>
 		</div>
 	);
 }
