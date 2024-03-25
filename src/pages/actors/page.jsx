@@ -7,7 +7,7 @@ import DisplayActorCard from "../../components/actors/displayActorCard";
 import peopleFetch from "@/components/api/Actors/peopleFetch";
 
 export default function Page() {
-	// Capitalized function name
+	
 	// const router = useRouter();
 	// const { id } = router.query;
 	const actors = peopleFetch();
@@ -20,7 +20,7 @@ export default function Page() {
 	}
 	return (
 		<Layout>
-			<div className='flex flex-wrap gap-4 justify-center items-center mt-10 mb-10'>
+			<div className='flex flex-wrap gap-4 justify-center items-center mt-10 mb-10 p-16'>
 				{actors.map((actor) => (
 					<div key={actor.id}>
 						<DisplayActorCard actor={actor} />
