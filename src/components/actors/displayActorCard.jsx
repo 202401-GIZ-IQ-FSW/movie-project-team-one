@@ -26,7 +26,7 @@ export default function DisplayActorCard({ actor }) {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          className={`flex flex-col justify-between items-center bg-gradient-to-br from-blue-300 to-blue-400 border border-blue-500 rounded-lg p-4 w-[15rem] h-[20rem] shadow-lg cursor-pointer relative overflow-hidden ${
+          className={`flex flex-col justify-between items-center bg-gray-100 text-gray-700 border border-gray-300 rounded-lg p-4 w-[15rem] h-[20rem] shadow-lg cursor-pointer relative overflow-hidden ${
             isLoading ? "loading" : ""
           }`}
         >
@@ -43,16 +43,16 @@ export default function DisplayActorCard({ actor }) {
                 transition={{ delay: 0.1, duration: 0.4, type: "spring", stiffness: 120 }}
               />
               <motion.span
-                className="text-blue-900 font-semibold text-lg z-10 relative"
+                className="text-gray-700 font-semibold text-lg z-10 relative"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.4, type: "spring", stiffness: 120 }}
               >
                 {actor.name}
               </motion.span>
-              <div className="absolute bottom-0 left-0 w-full h-2 bg-blue-500 z-10"></div>
+              <div className="absolute bottom-0 left-0 w-full h-2 bg-gray-300 z-10"></div>
               <motion.div
-                className="absolute top-0 left-0 w-full h-full border border-blue-500 rounded-lg"
+                className="absolute top-0 left-0 w-full h-full border border-gray-300 rounded-lg"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3, duration: 0.4, type: "spring", stiffness: 120 }}
