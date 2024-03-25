@@ -33,7 +33,7 @@ export default function displayCast({ cast }) {
 								alt={`${person.name} profile`}
 							/>
 						</Link>
-					</div>
+				 	</div>
 				))}
 			</div>
 		</div>
