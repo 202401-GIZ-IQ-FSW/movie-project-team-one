@@ -1,9 +1,7 @@
 "use client";
 import React, { useState, useEffect, useCallback } from "react";
 import ListFetch from "@/components/api/movies/listFetch";
-import DisplayCard from "@/components/movieDetails/displayCard";
-import Marquee from "react-fast-marquee";
-import UpcomingMovies from "@/components/upcomingMovies/UpcomingMovies";
+import MovieCard from "@/components/movieCard/MovieCard";
 
 export default function Home() {
 	const [popular, setPopular] = useState([]);
@@ -55,16 +53,16 @@ export default function Home() {
 	return (
 		<div className='flex flex-col'>
 			<div className="md:ml-36 md:mr-36 mb-24 text-center mt-10">
-				<UpcomingMovies pathname={"/movieDetails/page"} onPathnameChange={handlePathnameChange} data={upcoming} title="Upcoming Movies"/>
+				<MovieCard pathname={"/movieDetails/page"} onPathnameChange={handlePathnameChange} data={upcoming} title="Upcoming Movies"/>
 			</div>
 			<div className="md:ml-36 md:mr-36 mb-24 text-center">
-				<UpcomingMovies pathname={"/movieDetails/page"} onPathnameChange={handlePathnameChange} data={nowPlaying} title="Now Playing"/>
+				<MovieCard pathname={"/movieDetails/page"} onPathnameChange={handlePathnameChange} data={nowPlaying} title="Now Playing"/>
 			</div>
 			<div className="md:ml-36 md:mr-36 mb-24 text-center">
-				<UpcomingMovies pathname={"/movieDetails/page"} onPathnameChange={handlePathnameChange} data={popular} title="Popular"/>
+				<MovieCard pathname={"/movieDetails/page"} onPathnameChange={handlePathnameChange} data={popular} title="Popular"/>
 			</div>
 			<div className="md:ml-36 md:mr-36 mb-24 text-center">
-				<UpcomingMovies pathname={"/movieDetails/page"} onPathnameChange={handlePathnameChange} data={topRated} title="Top Rated"/>
+				<MovieCard pathname={"/movieDetails/page"} onPathnameChange={handlePathnameChange} data={topRated} title="Top Rated"/>
 			</div>
 		</div>
 	);
