@@ -31,11 +31,11 @@ const UpcomingMovies = ({ data, pathname, title }) => {
             backgroundColor="#f3f3f3"
             foregroundColor="#ecebeb"
           >
-            <rect x="0" y="10" rx="5" ry="5" width="600" height="15" />
-            <rect x="0" y="40" rx="5" ry="5" width="600" height="15" />
-            <rect x="0" y="70" rx="5" ry="5" width="600" height="15" />
-            <rect x="0" y="100" rx="5" ry="5" width="600" height="15" />
-            <rect x="0" y="130" rx="5" ry="5" width="600" height="15" />
+            {/* Four rectangles in one row with four columns */}
+            <rect x="50" y="20" rx="10" ry="10" width="160" height="180" />
+            <rect x="220" y="20" rx="10" ry="10" width="160" height="180" />
+            <rect x="390" y="20" rx="10" ry="10" width="160" height="180" />
+            <rect x="560" y="20" rx="10" ry="10" width="160" height="180" />
           </ContentLoader>
         ) : (
           <div className="movie-container relative overflow-hidden" ref={movieContainerRef}>
