@@ -1,27 +1,22 @@
-"use client";
-
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import React from "react";
 
-// Components
+export default function NavbarItem({ title, param }) {
+	// To style the acive tab
+	const searchParams = useSearchParams();
+	const genre = searchParams.get("genre");
 
-const NavItems = () => {
-  const navLinks = [
-    { label: "Home", href: "/" },
-    { label: "Movies", href: "/movies/page?genre=popular" },
-    { label: "Actors", href: "/actors/page" },
-  ];
-
-  return (
-    <div className="flex items-center">
-      <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-24">
-        {navLinks.map((link, index) => (
-          <Link key={index} href={link.href}>
-            {link.label}
-          </Link>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export default NavItems;
+	return (
+		<div className=' hover:bg-gray-200 hover:text-slate-700 rounded-lg pl-3'>
+			<Link
+				href={`/movies/page/?genre=${param}`}
+				className={`${
+					genre === param ? "text-yellow-300" : ""
+				}`}
+			>
+				{title}
+			</Link>
+		</div>
+	);
+}
