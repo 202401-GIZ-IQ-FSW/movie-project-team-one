@@ -9,11 +9,11 @@ import "../../app/globals.css";
 export default function Movies() {
 	const [results, setResults] = useState([]);
 	const searchParams = useSearchParams();
-	const genre = searchParams.get("genre");
+	const list = searchParams.get("list");
 
 	let listName;
 
-	switch (genre) {
+	switch (list) {
 		case "now_playing":
 			listName = "now_playing";
 			break;
@@ -47,7 +47,7 @@ export default function Movies() {
 	return (
 		<Layout>
 			<div className='flex flex-wrap gap-3 w-screen'>
-				<h1>{genre}</h1>
+				<h1>{list}</h1>
 				{results.map((result) => (
 					<div key={result.id}>
 						<DisplayCard
