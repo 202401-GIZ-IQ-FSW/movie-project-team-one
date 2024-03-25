@@ -1,105 +1,78 @@
-import React from 'react';
-import Image from "next/image";
+import React, { useRef, useState, useEffect } from 'react';
+import "./UpcomingMovies.css";
+import { useRouter } from 'next/navigation';
+import Marquee from "react-fast-marquee";
 
-const UpcomingMovies = ({data}) => {
+const UpcomingMovies = ({ data, pathname, onPathnameChange, title }) => {
+  const movieContainerRef = useRef(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const router = useRouter();
+
+  useEffect(() => {
+    setScrollPosition(0);
+  }, []);
+
+  const scrollLeft = () => {
+    if (movieContainerRef.current) {
+      setScrollPosition(prevScrollPosition => Math.max(0, prevScrollPosition - 1));
+      movieContainerRef.current.scrollBy({
+        left: -300,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const scrollRight = () => {
+    if (movieContainerRef.current) {
+      setScrollPosition(prevScrollPosition => prevScrollPosition + 1);
+      movieContainerRef.current.scrollBy({
+        left: 300,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const handleCardClick = (event, movie) => {
+    event.preventDefault();
+    event.stopPropagation();
+    router.push(`${pathname}/?id=${movie.id}`);
+    onPathnameChange(`${pathname}/?id=${movie.id}`);
+  };
+
+  const visibleMovies = data;
+
   return (
-    <section className="ucm-area ucm-bg" data-background="img/bg/ucm_bg.jpg">
-      <div className="ucm-bg-shape" data-background="img/bg/ucm_bg_shape.png"></div>
+    <section>
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 items-end mb-16 md:mb-10">
           <div className="text-center md:text-left">
-            <span className="text-yellow-300">ONLINE STREAMING</span>
-            <h2 className="text-2xl font-bold">Upcoming Movies</h2>
+            <span className="text-yellow-300">{title === "Upcoming Movies" ? "ONLINE STREAMING" : " "}</span>
+            <h2 className="text-2xl font-bold">{title}</h2>
           </div>
         </div>
-        <div className="swiper-container">
-          <div className="swiper-wrapper">
-            <div className="swiper-slide">
-              <div className="grid grid-cols-4 md:grid-cols-4 gap-4">
-                <div className="movie-item">
-                  <div className="movie-poster">
-                    <a href="movie-details.html"><Image src="/img/poster/ucm_poster01.jpg" width={300} height={160} alt="" /></a>
-                  </div>
-                  <div className="movie-content">
-                    <div className="top">
-                      <h5 className="title"><a href="movie-details.html">Women's Day</a></h5>
-                      <span className="date">2021</span>
+        <div className="movie-container relative overflow-hidden" ref={movieContainerRef}>
+          <div className="gradient-left absolute top-0 bottom-0 left-0 w-20 bg-gradient-to-r from-transparent to-white z-10"></div>
+          <div className="gradient-right absolute top-0 bottom-0 right-0 w-20 bg-gradient-to-l from-transparent to-white z-10"></div>
+          <div className="movie-wrapper mr-4 relative z-1">
+            <Marquee
+              speed={50}
+              loop={0}
+              pauseOnHover
+            >
+              {visibleMovies.map((movie, index) => (
+                <div key={index} className="movie-card">
+                  <a href="#" onClick={(e) => handleCardClick(e, movie)}>
+                    <div className="card-content">
+                      <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}  alt=""/>
+                      <div className="movie-details">
+                        <h5 className="title">{movie.title}</h5>
+                      </div>
                     </div>
-                    <div className="bottom">
-                      <ul>
-                        <li><span className="quality">hd</span></li>
-                        <li>
-                          <span className="duration"><i className="far fa-clock"></i> 128 min</span>
-                          <span className="rating"><i className="fas fa-thumbs-up"></i> 3.5</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
+                  </a>
                 </div>
-                <div className="movie-item">
-                  <div className="movie-poster">
-                    <a href="movie-details.html"><Image src="/img/poster/ucm_poster01.jpg" width={300} height={160} alt="" /></a>
-                  </div>
-                  <div className="movie-content">
-                    <div className="top">
-                      <h5 className="title"><a href="movie-details.html">Women's Day</a></h5>
-                      <span className="date">2021</span>
-                    </div>
-                    <div className="bottom">
-                      <ul>
-                        <li><span className="quality">hd</span></li>
-                        <li>
-                          <span className="duration"><i className="far fa-clock"></i> 128 min</span>
-                          <span className="rating"><i className="fas fa-thumbs-up"></i> 3.5</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div className="movie-item">
-                  <div className="movie-poster">
-                    <a href="movie-details.html"><Image src="/img/poster/ucm_poster01.jpg" width={300} height={160} alt="" /></a>
-                  </div>
-                  <div className="movie-content">
-                    <div className="top">
-                      <h5 className="title"><a href="movie-details.html">Women's Day</a></h5>
-                      <span className="date">2021</span>
-                    </div>
-                    <div className="bottom">
-                      <ul>
-                        <li><span className="quality">hd</span></li>
-                        <li>
-                          <span className="duration"><i className="far fa-clock"></i> 128 min</span>
-                          <span className="rating"><i className="fas fa-thumbs-up"></i> 3.5</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div className="movie-item">
-                  <div className="movie-poster">
-                    <a href="movie-details.html"><Image src="/img/poster/ucm_poster01.jpg" width={300} height={160} alt="" /></a>
-                  </div>
-                  <div className="movie-content">
-                    <div className="top">
-                      <h5 className="title"><a href="movie-details.html">Women's Day</a></h5>
-                      <span className="date">2021</span>
-                    </div>
-                    <div className="bottom">
-                      <ul>
-                        <li><span className="quality">hd</span></li>
-                        <li>
-                          <span className="duration"><i className="far fa-clock"></i> 128 min</span>
-                          <span className="rating"><i className="fas fa-thumbs-up"></i> 3.5</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+              ))}
+            </Marquee>
           </div>
-          <div className="swiper-pagination"></div>
         </div>
       </div>
     </section>

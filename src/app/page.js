@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import ListFetch from "@/components/api/movies/listFetch";
 import DisplayCard from "@/components/movieDetails/displayCard";
 import Marquee from "react-fast-marquee";
@@ -10,6 +10,10 @@ export default function Home() {
 	const [topRated, setTopRated] = useState([]);
 	const [upcoming, setUpcoming] = useState([]);
 	const [nowPlaying, setNowPlaying] = useState([]);
+	
+	const handlePathnameChange = useCallback((newPathname) => {
+		console.log("hello",newPathname)
+	}, []);
 
 	// const genre = searchParams.genre || "popular";
 
@@ -49,88 +53,18 @@ export default function Home() {
 	fetchMovies();
 
 	return (
-		<div className='flex flex-col gap-3 w-screen '>
-			<h1 className='pt-10 text-center font-bold'>
-				Now Playing
-			</h1>
-			<div className='bg-blue-300 flex justify-center items-center p-4'>
-				<Marquee
-					speed={50}
-					loop={0}
-					pauseOnHover
-				>
-					{nowPlaying.map((result) => (
-						<div key={result.id}>
-							<DisplayCard
-								result={result}
-								pathname={"/movieDetails/page"}
-							/>
-						</div>
-					))}
-				</Marquee>
+		<div className='flex flex-col'>
+			<div className="md:ml-36 md:mr-36 mb-24 text-center">
+				<UpcomingMovies pathname={"/movieDetails/page"} onPathnameChange={handlePathnameChange} data={upcoming} title="Upcoming Movies"/>
 			</div>
-
-			<h1 className='pt-10 text-center font-bold'>
-				Popular
-			</h1>
-			<div className='flex overflow-x-auto gap-2 bg-orange-300 p-3'>
-				<Marquee
-					speed={50}
-					loop={0}
-					pauseOnHover
-				>
-					{popular.map((result) => (
-						<div key={result.id}>
-							<DisplayCard
-								result={result}
-								pathname={"/movieDetails/page"}
-							/>
-						</div>
-					))}
-				</Marquee>
+			<div className="md:ml-36 md:mr-36 mb-24 text-center">
+				<UpcomingMovies pathname={"/movieDetails/page"} onPathnameChange={handlePathnameChange} data={nowPlaying} title="Now Playing"/>
 			</div>
-
-			<h1 className='pt-10 text-center font-bold'>
-				Top Rated
-			</h1>
-			<div className='flex overflow-x-auto gap-2 bg-pink-300 p-3'>
-				<Marquee
-					speed={50}
-					loop={0}
-					pauseOnHover
-				>
-					{topRated.map((result) => (
-						<div key={result.id}>
-							<DisplayCard
-								result={result}
-								pathname={"/movieDetails/page"}
-							/>
-						</div>
-					))}
-				</Marquee>
+			<div className="md:ml-36 md:mr-36 mb-24 text-center">
+				<UpcomingMovies pathname={"/movieDetails/page"} onPathnameChange={handlePathnameChange} data={popular} title="Popular"/>
 			</div>
-
-			{/* <h1 className='pt-10 text-center font-bold'>
-				Upcoming
-			</h1>
-			<div className='flex overflow-x-auto gap-2 bg-yellow-300 p-3'>
-				<Marquee
-					speed={50}
-					loop={0}
-					pauseOnHover
-				>
-					{upcoming.map((result) => (
-						<div key={result.id}>
-							<DisplayCard
-								result={result}
-								pathname={"/movieDetails/page"}
-							/>
-						</div>
-					))}
-				</Marquee>
-			</div> */}
-			<div className="mt-24 mb-24">
-				<UpcomingMovies />
+			<div className="md:ml-36 md:mr-36 mb-24 text-center">
+				<UpcomingMovies pathname={"/movieDetails/page"} onPathnameChange={handlePathnameChange} data={topRated} title="Top Rated"/>
 			</div>
 		</div>
 	);
