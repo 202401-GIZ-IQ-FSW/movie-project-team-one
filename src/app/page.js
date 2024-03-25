@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
 import ListFetch from "@/components/api/movies/listFetch";
 import MovieCard from "@/components/movieCard/MovieCard";
 
@@ -9,10 +9,6 @@ export default function Home() {
 	const [upcoming, setUpcoming] = useState([]);
 	const [nowPlaying, setNowPlaying] = useState([]);
 	
-	const handlePathnameChange = useCallback((newPathname) => {
-		console.log("hello",newPathname)
-	}, []);
-
 	// const genre = searchParams.genre || "popular";
 
 	const fetchMovies = async () => {
@@ -53,16 +49,16 @@ export default function Home() {
 	return (
 		<div className='flex flex-col'>
 			<div className="md:ml-36 md:mr-36 mb-24 text-center mt-10">
-				<MovieCard pathname={"/movieDetails/page"} onPathnameChange={handlePathnameChange} data={upcoming} title="Upcoming Movies"/>
+				<MovieCard pathname={"/movieDetails/page"} data={upcoming} title="Upcoming Movies"/>
 			</div>
 			<div className="md:ml-36 md:mr-36 mb-24 text-center">
-				<MovieCard pathname={"/movieDetails/page"} onPathnameChange={handlePathnameChange} data={nowPlaying} title="Now Playing"/>
+				<MovieCard pathname={"/movieDetails/page"} data={nowPlaying} title="Now Playing"/>
 			</div>
 			<div className="md:ml-36 md:mr-36 mb-24 text-center">
-				<MovieCard pathname={"/movieDetails/page"} onPathnameChange={handlePathnameChange} data={popular} title="Popular"/>
+				<MovieCard pathname={"/movieDetails/page"} data={popular} title="Popular"/>
 			</div>
 			<div className="md:ml-36 md:mr-36 mb-24 text-center">
-				<MovieCard pathname={"/movieDetails/page"} onPathnameChange={handlePathnameChange} data={topRated} title="Top Rated"/>
+				<MovieCard pathname={"/movieDetails/page"} data={topRated} title="Top Rated"/>
 			</div>
 		</div>
 	);

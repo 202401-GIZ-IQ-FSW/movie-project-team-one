@@ -1,10 +1,10 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef } from 'react';
 import "./MovieCard.css";
 import { useRouter } from 'next/navigation';
 import Marquee from "react-fast-marquee";
 import ContentLoader from 'react-content-loader';
 
-const UpcomingMovies = ({ data, pathname, onPathnameChange, title }) => {
+const UpcomingMovies = ({ data, pathname, title }) => {
   const movieContainerRef = useRef(null);
   const router = useRouter();
 
@@ -12,10 +12,7 @@ const UpcomingMovies = ({ data, pathname, onPathnameChange, title }) => {
     event.preventDefault();
     event.stopPropagation();
     router.push(`${pathname}/?id=${movie.id}`);
-    onPathnameChange(`${pathname}/?id=${movie.id}`);
   };
-
-  const visibleMovies = data;
 
   return (
     <section>
@@ -50,7 +47,7 @@ const UpcomingMovies = ({ data, pathname, onPathnameChange, title }) => {
                 loop={0}
                 pauseOnHover
               >
-                {visibleMovies.map((movie, index) => (
+                {data.map((movie, index) => (
                   <div key={index} className="movie-card">
                     <a href="#" onClick={(e) => handleCardClick(e, movie)}>
                       <div className="card-content">
