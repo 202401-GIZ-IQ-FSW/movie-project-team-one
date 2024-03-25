@@ -31,7 +31,6 @@ const UpcomingMovies = ({ data, pathname, title }) => {
             backgroundColor="#f3f3f3"
             foregroundColor="#ecebeb"
           >
-            {/* Four rectangles in one row with four columns */}
             <rect x="50" y="20" rx="10" ry="10" width="160" height="180" />
             <rect x="220" y="20" rx="10" ry="10" width="160" height="180" />
             <rect x="390" y="20" rx="10" ry="10" width="160" height="180" />
