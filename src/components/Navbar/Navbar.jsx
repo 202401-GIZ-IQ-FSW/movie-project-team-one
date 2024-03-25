@@ -53,12 +53,14 @@ const toggleGenresDropdown = () => {
 		<div className='bg-slate-700 sticky z-50 top-0 flex h-16 items-center text-[#FDAE0D] w-screen px-16 justify-between'>
 			{/* The app Icon */}
 			<div className='ml-4 flex lg:ml-0'>
-				<Image
-					src='/img/logo/logo.png'
-					alt='Logo'
-					width={96}
-					height={96}
-				/>
+				<Link href={{ pathname: "/" }}>
+					<Image
+						src='/img/logo/logo.png'
+						alt='Logo'
+						width={96}
+						height={96}
+					/>
+				</Link>
 			</div>
 
 			{/* Mobile menu icon */}
@@ -83,7 +85,7 @@ const toggleGenresDropdown = () => {
 					</svg>
 				</button>
 				{isNavbarOpen && (
-					<div className='absolute -right-10 mt-2 bg-slate-700  text-white rounded shadow-lg flex flex-col p-3 gap-2 w-40'>
+					<div className='absolute mt-2 bg-slate-700  text-white rounded shadow-lg flex flex-col p-3 gap-2 w-40'>
 						<Link
 							href={{ pathname: "/" }}
 							className='block px-4 py-2  hover:text-gray-200 hover:animate-pulse hover:scale-105'
