@@ -22,7 +22,6 @@ const UpcomingMovies = ({ data, pathname, onPathnameChange, title }) => {
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 items-end mb-16 md:mb-10">
           <div className="text-center md:text-left">
-            <span className="text-yellow-300">{title === "Upcoming Movies" ? "ONLINE STREAMING" : " "}</span>
             <h2 className="text-2xl font-bold">{title}</h2>
           </div>
         </div>
