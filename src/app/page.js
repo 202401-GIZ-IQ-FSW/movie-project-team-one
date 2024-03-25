@@ -54,7 +54,7 @@ export default function Home() {
 
 	return (
 		<div className='flex flex-col'>
-			<div className="md:ml-36 md:mr-36 mb-24 text-center">
+			<div className="md:ml-36 md:mr-36 mb-24 text-center mt-10">
 				<UpcomingMovies pathname={"/movieDetails/page"} onPathnameChange={handlePathnameChange} data={upcoming} title="Upcoming Movies"/>
 			</div>
 			<div className="md:ml-36 md:mr-36 mb-24 text-center">
