@@ -14,18 +14,18 @@ function Footer() {
 			<div className='container mx-auto py-8'>
 				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
 					<div className='col-span-1 md:col-span-2'>
-						<div className='footer-logo'>
+						<div className='footer-logo pl-2'>
 							<a href='index.html'>
 								<Image
 									src='/img/logo/logo.png'
 									alt='Logo'
-									width={200}
-									height={50}
+									width={100}
+									height={30}
 								/>
 							</a>
 						</div>
 					</div>
-					<div className='col-span-1 md:col-span-1 lg:text-right'>
+					<div className='col-span-1 md:col-span-1 lg:text-right pr-4'>
 						<nav className='footer-menu'>
 							<ul className='flex justify-center md:justify-end space-x-6'>
 								<li>
@@ -46,7 +46,7 @@ function Footer() {
 							</ul>
 						</nav>
 					</div>
-					<div className='lg:flex lg:justify-between lg:items-center'>
+					<div className='lg:flex lg:justify-between lg:items-center pl-4'>
 						<div className='lg:text-left'>
 							<div className='quick-link-list'>
 								<ul className='flex justify-center md:justify-start space-x-6'>
@@ -96,7 +96,7 @@ function Footer() {
 					</div>
 				</div>
 			</div>
-			<div className='bg-gray-900 py-4'>
+			<div className='bg-gray-900 py-4 pl-4'>
 				<div className='container mx-auto'>
 					<div className='text-center md:text-left'>
 						<p>
