@@ -46,7 +46,7 @@ export default function Movies() {
 	return (
 		<Layout>
 			<h1 className="text-center text-lg font-bold mt-2">{list}</h1>
-			<div className='flex justify-center items-center'>
+				<div className='flex justify-center items-center mb-10'>
 					{/* <h1 style={{ fontSize: "1.4rem"}}>{list}</h1> */}
 					<MoviesCard
 						pathname={"/movieDetails/page"}
