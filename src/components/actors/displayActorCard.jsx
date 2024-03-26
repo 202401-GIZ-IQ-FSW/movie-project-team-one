@@ -35,7 +35,7 @@ export default function DisplayActorCard({ actor }) {
 					) : (
 						<>
 							<motion.img
-								className='w-24 h-24 rounded-full object-cover z-10 shadow-md'
+								className='object-cover mx-auto mb-4 w-full h-5/6 rounded-lg'
 								src={
 									actor.profile_path
 										? `https://image.tmdb.org/t/p/original/${actor.profile_path}`
@@ -54,7 +54,7 @@ export default function DisplayActorCard({ actor }) {
 								}}
 							/>
 							<motion.span
-								className='text-gray-700 font-semibold text-lg z-10 relative'
+								className='text-gray-700 font-semibold text-lg z-10 relative '
 								initial={{ opacity: 0, y: 10 }}
 								animate={{ opacity: 1, y: 0 }}
 								transition={{

@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Layout from "@/components/Layout";
 import "../../app/globals.css";
 import DisplayActorCard from "../../components/actors/displayActorCard";
+import { Search } from "@/components/actors/search"
 
 import peopleFetch from "@/components/api/Actors/peopleFetch";
 

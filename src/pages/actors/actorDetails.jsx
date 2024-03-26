@@ -13,10 +13,10 @@ export default function actorDetails() {
 	console.log("actor", actor);
 	return (
 		<Layout>
-			<div className='flex justify-center items-center mt-20 mb-20'>
-				<div className='bg-gray-100 rounded-lg p-8 shadow-md max-w-md text-center'>
+			<div className='flex justify-center items-center mt-20 mb-20 '>
+				<div className='bg-gray-100 rounded-lg p-8 shadow-md max-w-md text-center h-fit'>
 					<img
-						className='w-32 h-32 rounded-full object-cover mx-auto mb-4'
+						className='object-cover mx-auto mb-4 h-56 w-full rounded-lg'
 						src={
 							actor.profile_path
 								? `https://image.tmdb.org/t/p/original/${actor.profile_path}`
