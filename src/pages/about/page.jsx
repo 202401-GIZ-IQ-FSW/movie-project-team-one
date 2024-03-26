@@ -22,8 +22,8 @@ function About() {
           <div className="max-w-3xl">
             <h1 className="text-4xl font-bold mb-4 ">About Us</h1>
             <p className="text-lg mb-4">Welcome to our movie website! We are a team of passionate individuals dedicated to creating amazing products.</p>
-            <p className="text-lg mb-4">Our mission is to provide high-quality solutions that meet our customers' needs.</p>
-            <p className="text-lg">Feel free to contact us if you have any questions or inquiries. We're here to help!</p>
+            <p className="text-lg mb-4">Our mission is to provide high-quality solutions that meet our customers needs.</p>
+            <p className="text-lg">Feel free to contact us if you have any questions or inquiries. We are here to help!</p>
           </div>
         </div>
         {/* <footer className="bg-gray-200 py-4">
