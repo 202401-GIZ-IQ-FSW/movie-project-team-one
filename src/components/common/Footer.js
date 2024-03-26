@@ -277,12 +277,12 @@ function Footer() {
 						<p>
 							&copy; {new Date().getFullYear()}. All Rights
 							Reserved By{" "}
-							<a
-								href='index.html'
+							<Link
+								href={{ pathname: "/about/page" }}
 								className='text-yellow-300'
 							>
 								Team One
-							</a>
+							</Link>
 						</p>
 					</div>
 				</div>
