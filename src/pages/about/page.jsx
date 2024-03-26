@@ -6,8 +6,8 @@ function About() {
   return (
     <Layout>
       <div className="min-h-screen flex flex-col justify-between items-center bg-yellow-400">
-        <div className="container mx-auto px-4 py-8">
-          <div className="max-w-3xl">
+        <div className="container mx-auto px-4 py-8 flex justify-center items-center">
+          <div className="max-w-3xl ">
             <h1 className="text-4xl font-bold mb-4 text-[#344156]">About Us</h1>
             <p className="text-lg mb-4 text-[#344156]">
               Welcome to our movie website!

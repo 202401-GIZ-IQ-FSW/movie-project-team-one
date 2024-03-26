@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import ListFetch from "@/components/api/movies/listFetch";
-import DisplayCard from "@/components/movieDetails/displayCard";
-
+import MoviesCard from "@/components/moviesCard/MoviesCard";
 import Layout from "@/components/Layout";
 import "../../app/globals.css";
 
@@ -46,17 +45,15 @@ export default function Movies() {
 
 	return (
 		<Layout>
-			<div className='flex flex-wrap gap-3 w-screen'>
-				<h1>{list}</h1>
-				{results.map((result) => (
-					<div key={result.id}>
-						<DisplayCard
-							result={result}
-							pathname={"/movieDetails/page"}
-						/>
-					</div>
-				))}
-			</div>{" "}
+			<h1 className="text-center text-lg font-bold mt-2">{list}</h1>
+				<div className='flex justify-center items-center mb-10'>
+					{/* <h1 style={{ fontSize: "1.4rem"}}>{list}</h1> */}
+					<MoviesCard
+						pathname={"/movieDetails/page"}
+						data={results}
+						title=''
+					/>
+				</div>
 		</Layout>
 	);
 }
