@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-
 export default function DisplayCast({ cast }) {
   return (
     <div className="container mx-auto px-4 py-8">

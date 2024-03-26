@@ -3,7 +3,8 @@ import axios from "axios";
 
 const API_KEY = "258db8ec4984148dcc9558ed97d94f6a";
 
-function PeopleSearchFetch({ searchString }) {
+const SearchInput = () => {
+	const [searchString, setSearchString] = useState("");
 	const [people, setPeople] = useState([]);
 
 	useEffect(() => {
@@ -24,10 +25,32 @@ function PeopleSearchFetch({ searchString }) {
 			}
 		};
 
-		fetchPeople();
+		if (searchString.trim() !== "") {
+			fetchPeople();
+		} else {
+			setPeople([]); // Clear the results if search string is empty
+		}
 	}, [searchString]);
 
-	return people;
-}
+	const handleInputChange = (event) => {
+		setSearchString(event.target.value);
+	};
 
-export default PeopleSearchFetch;
+	return (
+		<div>
+			<input
+				type='text'
+				value={searchString}
+				onChange={handleInputChange}
+				placeholder='Search for people...'
+			/>
+			<ul>
+				{people.map((person) => (
+					<li key={person.id}>{person.name}</li>
+				))}
+			</ul>
+		</div>
+	);
+};
+
+export default SearchInput;
