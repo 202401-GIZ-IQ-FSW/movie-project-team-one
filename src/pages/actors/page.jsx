@@ -21,7 +21,7 @@ export default function Page() {
 	}
 	return (
 		<Layout>
-			<div className='flex flex-wrap gap-4 justify-center items-center mt-10 mb-10'>
+			<div className='flex flex-wrap gap-5 justify-center items-center mt-10 mb-10 p-10'>
 				{actors.map((actor) => (
 					<div key={actor.id}>
 						<DisplayActorCard actor={actor} />
