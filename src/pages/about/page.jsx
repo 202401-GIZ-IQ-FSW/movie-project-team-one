@@ -51,7 +51,7 @@ function About() {
 
               <div className="bg-[#344156] p-4 rounded-lg flex flex-col items-center">
                 <Image
-                  src="/img/images/episode_img.jpg"
+                  src="/img/about/Mohammad.jpg"
                   alt="Contributor 4"
                   width={300}
                   height={200}
