@@ -1,36 +1,38 @@
-import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
-export default function displayCast({ cast }) {
-
-	return (
-		<div className='w-screen flex flex-col justify-center items-center'>
-			<h1>Cast</h1>
-			<div className='flex w-6/12 gap-5 rounded-lg justify-center items-center overflow-scroll'>
-				{cast.map((person) => (
-					<div
-						key={person.id}
-						className='flex flex-col p-4 justify-center items-center bg-indigo-500 rounded-lg min-w-fit'
-					>
-						<Link
-							href={{
-								pathname: `/actors/actorDetails`,
-								query: { id: `${person.id}` },
-							}}
-							passHref
-						>
-							
-							<h3>Name : {person.name}</h3>
-							<p>Character: {person.character}</p>
-							<img
-								className='h-20 w-20 rounded-full object-cover'
-								src={`https://image.tmdb.org/t/p/original/${person.profile_path}`}
-								alt={`${person.name} profile`}
-							/>
-						</Link>
-					</div>
-				))}
-			</div>
-		</div>
-	);
+export default function DisplayCast({ cast }) {
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-6">Cast</h1>
+      <div className="overflow-x-auto whitespace-nowrap">
+        {cast.map((person) => (
+          <div key={person.id} className="inline-block mr-8">
+            <Link
+              href={{
+                pathname: "/actors/actorDetails",
+                query: { id: person.id },
+              }}
+            >
+              <div className="block w-32">
+                <img
+                  className="w-full h-48 object-cover rounded-lg"
+                  src={`https://image.tmdb.org/t/p/original/${person.profile_path}`}
+                  alt={`${person.name}`}
+                  profile
+                />
+                <div className="p-4">
+                  <h3 className="text-md font-semibold mb-2">{person.name}</h3>
+                  <div className="flex flex-col ">
+                    <p>Character:</p>
+                    <p>{person.character}</p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
