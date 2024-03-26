@@ -85,7 +85,7 @@ const toggleGenresDropdown = () => {
 					</svg>
 				</button>
 				{isNavbarOpen && (
-					<div className='absolute mt-2 bg-slate-700  text-white rounded shadow-lg flex flex-col p-3 gap-2 w-40'>
+					<div className='absolute right-0 bg-slate-700  text-white rounded shadow-lg flex flex-col p-3 gap-2 w-40'>
 						<Link
 							href={{ pathname: "/" }}
 							className='block px-4 py-2  hover:text-gray-200 hover:animate-pulse hover:scale-105'
@@ -101,7 +101,7 @@ const toggleGenresDropdown = () => {
 								Movies
 							</button>
 							{isMoviesOpen && (
-								<div className='absolute -right-10 mt-2 bg-slate-700  text-white rounded shadow-lg flex flex-col p-3 gap-2 w-40'>
+								<div className='absolute right-36 top-0 mt-2  bg-gray-600  text-white rounded shadow-lg flex flex-col p-3 gap-2 w-40'>
 									<NavbarItem
 										title='Popular'
 										param='popular'
@@ -121,18 +121,6 @@ const toggleGenresDropdown = () => {
 								</div>
 							)}
 						</div>
-						<Link
-							href={{ pathname: "/actors/page" }}
-							className='block px-4 py-2  hover:text-gray-200 hover:animate-pulse hover:scale-105'
-						>
-							Actors
-						</Link>
-						<Link
-							href={{ pathname: "/about/page" }}
-							className='block px-4 py-2  hover:text-gray-200 hover:animate-pulse hover:scale-105'
-						>
-							About
-						</Link>
 
 						<div className='relative'>
 							<button
@@ -142,7 +130,7 @@ const toggleGenresDropdown = () => {
 								Genres
 							</button>
 							{isGenresOpen && (
-								<div className='absolute -right-10 mt-2 bg-slate-700 text-white rounded shadow-lg flex flex-col p-3 gap-2 w-40'>
+								<div className='absolute right-36 -top-16 mt-2 bg-gray-600 text-white rounded shadow-lg flex flex-col p-3 gap-2 w-40'>
 									{genres &&
 										genres.map((genre) => (
 											<NavbarItem
@@ -155,6 +143,19 @@ const toggleGenresDropdown = () => {
 								</div>
 							)}
 						</div>
+
+						<Link
+							href={{ pathname: "/actors/page" }}
+							className='block px-4 py-2  hover:text-gray-200 hover:animate-pulse hover:scale-105'
+						>
+							Actors
+						</Link>
+						<Link
+							href={{ pathname: "/about/page" }}
+							className='block px-4 py-2  hover:text-gray-200 hover:animate-pulse hover:scale-105'
+						>
+							About
+						</Link>
 					</div>
 				)}
 			</div>
@@ -200,12 +201,12 @@ const toggleGenresDropdown = () => {
 					<div className='relative'>
 						<button
 							onClick={toggleGenresDropdown}
-							className='px-4 py-2'
+							className='px-4 py-2  hover:text-gray-200 hover:animate-pulse hover:scale-105'
 						>
 							Genres
 						</button>
 						{isGenresOpen && (
-							<div className='absolute -right-10 mt-2 bg-slate-700 text-white rounded shadow-lg flex flex-col p-3 gap-2 w-40'>
+							<div className='absolute -right-10 mt-2 bg-slate-700 text-white rounded shadow-lg flex flex-col p-3 gap-2 w-40 '>
 								{genres &&
 									genres.map((genre) => (
 										<NavbarItem
