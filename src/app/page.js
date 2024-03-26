@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import ListFetch from "@/components/api/movies/listFetch";
 import MovieCard from "@/components/movieCard/MovieCard";
+import HeroSection from "@/components/heroSection";
 
 export default function Home() {
 	const [popular, setPopular] = useState([]);
@@ -48,17 +49,34 @@ export default function Home() {
 
 	return (
 		<div className='flex flex-col'>
-			<div className="md:ml-36 md:mr-36 mb-24 text-center mt-10">
-				<MovieCard pathname={"/movieDetails/page"} data={nowPlaying} title="Now Playing"/>
+			<HeroSection/>
+			<div className='md:ml-36 md:mr-36 mb-24 text-center mt-10'>
+				<MovieCard
+					pathname={"/movieDetails/page"}
+					data={nowPlaying}
+					title='Now Playing'
+				/>
 			</div>
-			<div className="md:ml-36 md:mr-36 mb-24 text-center">
-				<MovieCard pathname={"/movieDetails/page"} data={upcoming} title="Upcoming Movies"/>
+			<div className='md:ml-36 md:mr-36 mb-24 text-center'>
+				<MovieCard
+					pathname={"/movieDetails/page"}
+					data={upcoming}
+					title='Upcoming Movies'
+				/>
 			</div>
-			<div className="md:ml-36 md:mr-36 mb-24 text-center">
-				<MovieCard pathname={"/movieDetails/page"} data={popular} title="Popular"/>
+			<div className='md:ml-36 md:mr-36 mb-24 text-center'>
+				<MovieCard
+					pathname={"/movieDetails/page"}
+					data={popular}
+					title='Popular'
+				/>
 			</div>
-			<div className="md:ml-36 md:mr-36 mb-24 text-center">
-				<MovieCard pathname={"/movieDetails/page"} data={topRated} title="Top Rated"/>
+			<div className='md:ml-36 md:mr-36 mb-24 text-center'>
+				<MovieCard
+					pathname={"/movieDetails/page"}
+					data={topRated}
+					title='Top Rated'
+				/>
 			</div>
 		</div>
 	);
